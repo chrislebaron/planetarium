@@ -1,0 +1,27 @@
+<h2>Listing all planets</h2>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Position</th>
+		<th>Oribital Speed</th>
+		<th>Mass</th>
+		<th>Volume</th>
+		<th></th>
+	</tr>
+
+	<% @planets.each do | planet | %>
+	<tr>
+		<td><%= planet.name %></td>
+		<td><%= planet.position %></td>
+		<td><%= planet.orbital_speed %></td>
+		<td><%= planet.mass %></td>
+		<td><%= planet.volume %></td>
+		<td><%= link_to "Show", planet %></td>
+		<td><%= link_to "Edit", edit_planet_path(planet) %></td>
+		<td><%= link_to "Destroy", planet_path(planet), method: 'delete' %></td>
+	</tr>
+	<% end %>
+</table>
+
+<p><%= link_to "New Planet", new_planet_path %></p>

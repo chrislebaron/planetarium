@@ -1,0 +1,46 @@
+<h2>New Planet</h2>
+<% if @planet.errors.any? %>
+<p>
+  There were errors saving this planet:
+  <ul>
+    <% @planet.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</p>
+<% end %>
+<%= form_for(@planet) do |f| %>
+	
+  <p>
+  	<%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+  	<%= f.label :position %><br>
+    <%= f.number_field :position %>
+  </p>
+  
+  <p>
+  	<%= f.label :orbital_speed %><br>
+    <%= f.number_field :orbital_speed %>
+  </p>
+  
+  <p>
+  	<%= f.label :volume %><br>
+    <%= f.number_field :volume %>
+  </p>
+
+  <p>
+  	<%= f.label :mass %><br>
+    <%= f.text_field :mass %>
+  </p>
+
+  <p>
+  	<%= f.submit %>
+  </p>
+
+
+
+
+<% end %>

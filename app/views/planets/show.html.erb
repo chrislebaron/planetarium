@@ -1,0 +1,25 @@
+<h2>Welcome to <%= @planet.name %>!</h2>
+
+<p>
+	<strong>Position:</strong><br>
+	<%= @planet.position %>
+</p>
+
+<p>
+	<strong>Orbital Speed:</strong><br>
+	<%= @planet.orbital_speed %>
+</p>
+
+<p>
+	<strong>Mass:</strong><br>
+	<%= @planet.mass %>
+</p>
+
+<p>
+	<strong>Volume:</strong><br>
+	<%= @planet.volume %>
+</p>
+
+<p>
+<%= link_to "Planet List", planets_path %>  
+</p>
