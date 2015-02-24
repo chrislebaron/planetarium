@@ -17,8 +17,6 @@ class PlanetsController < ApplicationController
 
   def create
   	#processes the form
-    #get data from the form
-    planet_params = params.require(:planet).permit(:name, :position, :orbital_speed, :mass, :volume)
     #give data to the model
     @planet = Planet.new(planet_params)
     #save the model
@@ -39,7 +37,6 @@ class PlanetsController < ApplicationController
   end
 
   def update
-    planet_params = params.require(:planet).permit(:name, :position, :orbital_speed, :mass, :volume)
     @planet = Planet.find(params[:id])
     @planet.update(planet_params)
     redirect_to @planet
@@ -51,4 +48,10 @@ class PlanetsController < ApplicationController
     redirect_to planets_path
   end
 
+end
+
+private
+
+def planet_params
+  planet_params = params.require(:planet).permit(:name, :position, :orbital_speed, :mass, :volume)
 end

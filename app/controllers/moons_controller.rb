@@ -1,4 +1,6 @@
 class MoonsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
   	#shows list of planets
   	#needs a view

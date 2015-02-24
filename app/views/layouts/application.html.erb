@@ -7,7 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+	<h1>Planetarium</h1>
+	<p>
+		<% if user_signed_in? %>
+			<%= link_to "Sign Out", session_path, method: 'delete' %>
+			<%= current_user.first_name + ' ' + current_user.last_name %>
+		<% else %>
+			<%= link_to "Sign in", new_session_path %>
+			<%= link_to "Sign Up", new_user_path %>
+		<% end %>
+	</p>
 	<p id="flash-notice">
 		<%= notice %>
 	</p>

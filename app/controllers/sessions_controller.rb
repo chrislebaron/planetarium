@@ -21,12 +21,12 @@ class SessionsController < ApplicationController
 			render :new
 			
 		end
-		
-
 	end
 
 	def destroy
-
+		session[:user_id] = nil
+			# Redirect to root
+		redirect_to root_path, notice: "Signed out successfully"
 	end
 
 end
