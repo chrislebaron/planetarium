@@ -3,4 +3,5 @@ class Planet < ActiveRecord::Base
 	validates :position, numericality: { only_integer:true, greater_than: 0, less_than_or_equal_to: 8 }
 	
 	has_many :moons
+	belongs_to :user
 end

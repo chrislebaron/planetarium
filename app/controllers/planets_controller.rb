@@ -1,24 +1,27 @@
 class PlanetsController < ApplicationController
+  before_action :authenticate_user!
+  load_and_authorize_resource
   def index
   	#shows list of planets
   	#needs a view
-    @planets = Planet.all
+    #cancan does this for us@planets = Planet.all
   end
 
   def show
-    @planet = Planet.find(params[:id])
+   #cancan does this for us @planet = Planet.find(params[:id])
   end
 
   def new
     #shows the form
     #needs a view
-    @planet = Planet.new
+   #cancan does this for us @planet = Planet.new
   end
 
   def create
   	#processes the form
     #give data to the model
-    @planet = Planet.new(planet_params)
+    #cancan does this for us@planet = Planet.new(planet_params)
+    @planet.user = current_user
     #save the model
     if @planet.save
       #redirect to show or index
@@ -33,17 +36,17 @@ class PlanetsController < ApplicationController
   def edit
   	#shows the form with data about planet prepopulated
   	#needs a view
-    @planet = Planet.find(params[:id])
+    #cancan does this for us @planet = Planet.find(params[:id])
   end
 
   def update
-    @planet = Planet.find(params[:id])
+    #cancan does this for us @planet = Planet.find(params[:id])
     @planet.update(planet_params)
     redirect_to @planet
   end
 
   def destroy
-    @planet  = Planet.find(params[:id])
+    #cancan does this for us@planet  = Planet.find(params[:id])
     @planet.destroy
     redirect_to planets_path
   end

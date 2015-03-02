@@ -17,9 +17,18 @@
 		<td><%= planet.orbital_speed %></td>
 		<td><%= planet.mass %></td>
 		<td><%= planet.volume %></td>
-		<td><%= link_to "Show", planet %></td>
-		<td><%= link_to "Edit", edit_planet_path(planet) %></td>
-		<td><%= link_to "Destroy", planet_path(planet), method: 'delete' %></td>
+		<td>
+			<% if can? :read, planet %>
+				<%= link_to "Show", planet %>
+			<% end %>
+			<% if can? :update, planet %>
+
+				<%= link_to "Edit", edit_planet_path(planet) %>
+			<% end %>
+			<% if can? :destroy, planet %>
+				<%= link_to "Destroy", planet_path(planet), method: 'delete' %>
+			<% end %>
+		</td>
 	</tr>
 	<% end %>
 </table>

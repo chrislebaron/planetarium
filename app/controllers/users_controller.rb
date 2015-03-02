@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+	# before_action :authenticate_user!
+	# load_and_authorize_resource
 	def new
 		@user = User.new
 	end
@@ -14,5 +15,9 @@ class UsersController < ApplicationController
 		end
 	end
 
-	
+	private
+
+	def user_params
+		user_params = params.require(:user).permit(:first_name, :last_name, :phone_number, :email, :password, :password_confirmation)
+	end
 end
